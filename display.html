@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+      <link rel="stylesheet" href="./static/style.css" />
+      <link rel="stylesheet" href="./static/clock.css" />
+      <link rel="stylesheet" href="./static/slide_2.css" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      />
+      <link rel="stylesheet" href="./static/setting.css" />
+      <!-- <script src="./static/DisplayClock.js" defer></script> -->
+    </head>
+
+    <!-- <body class="global" onload="initClock()"> -->
+    <body class="global">
+      <div class="container">
+        <div class="item">
+          <img id="rsslogo" src="./static/img/newslogo/load2.gif" />
+        </div>
+
+        <div class="item">
+          <div id="title">뉴스 정보를 불러오는 중입니다...</div>
+        </div>
+
+        <div class="item" style="z-index: 99">
+          <nav id="setting" class="navbar">
+            <div class="setting-dropdown">
+              <div onclick="toggle()" class="setting-dropdown-btn">
+                <div class="setting-img">
+                  <img
+                    src="./static/img/icon/settings.png"
+                    alt=""
+                    style="width: 100%"
+                  />
+                </div>
+              </div>
+
+              <ul class="setting-dropdown-list">
+                <li class="setting-dropdown-list-item">
+                  <button class="button" onclick="changeState('timezone')">
+                    <img
+                      src="./static/img/icon/clock.png"
+                      alt=""
+                      style="width: 90px; height: 90px"
+                    /></button
+                  ><span id="icon-description">세계시간</span>
+                </li>
+
+                <li class="setting-dropdown-list-item">
+                  <button class="button" onclick="changeState('category')">
+                    <img
+                      src="./static/img/icon/select.png"
+                      alt=""
+                      style="width: 90px; height: 90px"
+                    /></button
+                  ><span id="icon-description">카테고리</span>
+                </li>
+
+                <li class="setting-dropdown-list-item">
+                  <button class="button" onclick="changeState('keyword')">
+                    <img
+                      src="./static/img/icon/note.png"
+                      alt=""
+                      style="width: 90px; height: 90px"
+                    /></button
+                  ><span id="icon-description">뉴스 키워드</span>
+                </li>
+
+                <li class="setting-dropdown-list-item">
+                  <button class="button" onclick="changeState('userInfo')">
+                    <img
+                      src="./static/img/icon/group.png"
+                      alt=""
+                      style="width: 90px; height: 90px"
+                    /></button
+                  ><span id="icon-description">사용자 정보</span>
+                </li>
+
+                <li class="setting-dropdown-list-item">
+                  <button class="button" onclick="changeState('brightness')">
+                    <img
+                      src="./static/img/icon/sun.png"
+                      alt=""
+                      style="width: 90px; height: 90px"
+                    /></button
+                  ><span id="icon-description">화면 밝기</span>
+                </li>
+
+                <li class="setting-dropdown-list-item">
+                  <button
+                    class="button"
+                    onclick="$('.setting-dropdown-list').removeClass('active'); changeState('content')"
+                  >
+                    <img
+                      src="./static/img/icon/next.png"
+                      alt=""
+                      style="width: 90px; height: 90px"
+                    /></button
+                  ><span id="icon-description">뒤로가기</span>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div class="item" style="z-index: 1">
+          <img id="qrcode" src="./static/img/load_qrcode.webp" />
+        </div>
+      </div>
+
+      <div class="container-content">
+        <div class="center" id="content">
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="description" id="description"></span>
+        </div>
+
+        <div class="center" id="timezone" style="display: none">
+          <div class="container-setting">
+            <div class="setting-head">Choose Your Timezone</div>
+            <div>
+              <div class="container-timezone">
+                <button
+                  class="normal-btn"
+                  value="seoul"
+                  onclick="addOrUpdateURL('timezone', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >서울 (UTC+09)</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="seoul"
+                  onclick="addOrUpdateURL('timezone', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >도쿄 (UTC+09)</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="newYork"
+                  onclick="addOrUpdateURL('timezone', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >뉴욕 (UTC-04)</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="london"
+                  onclick="addOrUpdateURL('timezone', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >런던 (UTC+01)</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="beijing"
+                  onclick="addOrUpdateURL('timezone', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >베이징 (UTC+08)</span
+                  >
+                </button>
+              </div>
+              <div class="save-container">
+                <button disabled class="save-btn" id="save_timezone">
+                  적용
+                </button>
+                <button disabled class="save-btn" id="save_timezone_back">
+                  확인
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="center" id="category" style="display: none">
+          <div class="container-setting">
+            <div class="setting-head">Choose Your Category</div>
+            <div>
+              <div class="contianer-category">
+                <button
+                  class="normal-btn"
+                  value="most"
+                  onclick="addOrUpdateURL('category', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >MOST</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="world"
+                  onclick="addOrUpdateURL('category', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >WORLD</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="economy"
+                  onclick="addOrUpdateURL('category', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >ECONOMY</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="technology"
+                  onclick="addOrUpdateURL('category', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >TECHNOLOGY</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="entertainment"
+                  onclick="addOrUpdateURL('category', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >ENTERTAINMENT</span
+                  >
+                </button>
+                <button
+                  class="normal-btn"
+                  value="sports"
+                  onclick="addOrUpdateURL('category', this.value)"
+                >
+                  <span
+                    style="
+                      color: white;
+                      background-color: black;
+                      font-size: 1rem;
+                    "
+                    >SPORTS</span
+                  >
+                </button>
+              </div>
+              <div class="save-container">
+                <button disabled class="save-btn" id="save_category">
+                  적용
+                </button>
+                <button disabled class="save-btn" id="save_category_back">
+                  확인
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="userInfo" class="center" style="display: none">
+          <div class="container-setting">
+            <div class="setting-head">Choose Your Type
+            <div class="user-type">
+              <button
+                id="userType"
+                value="student"
+                class="student"
+                onclick="updateUser(this.value)"
+              >
+                <img
+                  src="./static/img/icon/student.png"
+                  alt="학생"
+                  style="width: 110%; height: 100%"
+                />
+              </button>
+
+              <button
+                id="normal"
+                value="normal"
+                class="normal"
+                onclick="updateUser(this.value)"
+              >
+                <img
+                  src="./static/img/icon/normal.png"
+                  alt="직장인"
+                  style="width: 110%; height: 100%"
+                />
+              </button>
+              <div class="user-type-description">학생</div>
+              <div class="user-type-description">일반인</div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="center" id="brightness" style="display: none">
+          <div class="container-setting">
+            <div class="setting-head">Change Brightness</div>
+            <div>
+              <input
+                id="brightness-setter"
+                type="range"
+                value="128"
+                min="15"
+                max="255"
+                name="brightness"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="center" id="keyword" style="display: none">
+          <div class="container-setting">
+            <div class="setting-head">
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 70% 30%;
+                  grid-template-rows: auto;
+                "
+              >
+                Add your keyword
+                <button class="save-btn" style="width: 80px" id="reset_keyword">
+                  초기화
+                </button>
+              </div>
+              <form id="form">
+                <input
+                  type="text"
+                  id="msg"
+                  value=""
+                  class="keyboardInput"
+                  readonly
+                  on
+                />
+                <input
+                  type="txt"
+                  id="eng_text"
+                  readonly
+                  style="display: none"
+                />
+                <button
+                  type="submit"
+                  class="save-btn"
+                  id="btn"
+                  style="margin: 5px"
+                >
+                  입력
+                </button>
+                <button disabled class="save-btn" id="save_keyword">
+                  적용
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="datetime">
+          <div class="date">
+            <span id="dayname">Day</span>
+            <span id="month">Month</span>
+            <span id="daynum">00</span>
+            <span id="year">Year</span>
+          </div>
+          <div class="time">
+            <span id="hour">Day</span>: <span id="minutes">Month</span>
+            <span id="seconds">00</span>
+          </div>
+        </div>
+      </div>
+      <div id="slider">
+        <div class="container-content-bottom">
+          <input type="radio" name="slider" id="slide1" checked />
+          <input type="radio" name="slider" id="slide2" />
+          <input type="radio" name="slider" id="slide3" />
+          <input type="radio" name="slider" id="slide4" />
+          <div id="slides">
+            <div id="overflow">
+              <div class="inner">
+                <div class="slide slide_1">
+                  <div class="slide-content">
+                    <p id="01_1"></p>
+                    <p id="01_2"></p>
+                    <p class="overNotice" id="01_3"></p>
+                  </div>
+                </div>
+                <div class="slide slide_2">
+                  <div class="slide-content">
+                    <p id="02_1"></p>
+                    <p id="02_2"></p>
+                    <p class="overNotice" id="02_3"></p>
+                  </div>
+                </div>
+                <div class="slide slide_3">
+                  <div class="slide-content">
+                    <p id="03_1"></p>
+                    <p id="03_2"></p>
+                    <p class="overNotice" id="03_3"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="controls">
+              <label for="slide1"></label>
+              <label for="slide2"></label>
+              <label for="slide3"></label>
+            </div>
+          </div>
+          <div id="bullets">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+          </div>
+        </div>
+      </div>
+    </body>
+    <script src="./renderer.js" type="text/javascript"></script>
+    <script src="./static/display.js"></script>
+    <script src="./static/clock.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      $("setting-dropdown-list").on("click", function () {
+        $(this).addClass("active");
+      });
+    </script>
+  </head>
+</html>

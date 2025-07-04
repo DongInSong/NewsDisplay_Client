@@ -1,0 +1,223 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.global {
+  margin: 30px;
+}
+
+.container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 175px 2fr 75px;
+  grid-template-rows: auto;
+  align-content: start;
+}
+
+.item:nth-child(1) {
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.item:nth-child(2) {
+  grid-column: 2/3;
+  grid-row: 1/3;
+}
+
+.item {
+  display: flex;
+  margin: 5px;
+  align-content: stretch;
+  align-items: center;
+  position: relative;
+  font-size: 35px;
+  z-index: 1;
+  /* white-space: nowrap; */
+}
+
+.item > img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#title {
+  vertical-align: baseline;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.container-content {
+  display: grid;
+  gap: 30px;
+  /* grid-template-columns: 2fr 1fr; */
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto;
+}
+
+.container-content-bottom {
+  display: grid;
+  gap: 30px;
+  /* grid-template-columns: 2fr 1fr; */
+  grid-template-columns: 80% 20%;
+  grid-template-rows: auto;
+}
+
+.center {
+  margin: 5px;
+  margin-top: 20px;
+  white-space: normal;
+  max-height: 200px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  font-size: 22px;
+}
+
+.overNotice {
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+}
+
+.button {
+  display: block;
+}
+
+
+/* -----------------keyworld--------------------- */
+#keyboardInputMaster {
+  position:absolute;
+  /* border:2px groove #dddddd; */
+  color:#000000;
+  /* backdrop-filter: blur(2px); */
+  background-color: rgba(255, 255, 255, 0);
+  text-align:left;
+  z-index:1000000;
+  width:auto;
+}
+
+#keyboardInputMaster thead tr th {
+  text-align:left;
+  padding:2px 5px 2px 4px;
+  background-color:inherit;
+  border:0px none;
+}
+#keyboardInputMaster thead tr th select,
+#keyboardInputMaster thead tr th label {
+  color:white;
+  /* font:normal 20px Arial,bold */
+  font:bold 20px Arial,sans-serif;
+  background-color: rgba(64, 93, 93, 0.683);
+}
+#keyboardInputMaster thead tr td {
+  text-align:right;
+  padding:2px 4px 2px 5px;
+  background-color:inherit;
+  border:0px none;
+}
+#keyboardInputMaster thead tr td span {
+  padding:1px 4px;
+  font:bold 20px Arial,sans-serif;
+  border:1px outset #aaaaaa;
+  background-color:rgba(64, 93, 93, 0.683);
+  color: white;
+  cursor:pointer;
+}
+#keyboardInputMaster thead tr td span.pressed {
+  border:1px inset #999999;
+  background-color:#bbbbbb;
+}
+
+#keyboardInputMaster tbody tr td {
+  text-align:left;
+  margin:0px;
+  padding:0px 4px 3px 4px;
+}
+#keyboardInputMaster tbody tr td div {
+  text-align:center;
+  position:relative;
+  height:0px;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout {
+  height:auto;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table {
+  height:10px;
+  white-space:nowrap;
+  width:100%;
+  border-collapse:separate;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table.keyboardInputCenter {
+  width:70%;
+  margin:0px auto;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td {
+  min-width: 25px;
+  vertical-align:middle;
+  padding:0px 15px 0px 5px;
+  white-space:pre;
+  font:normal 17px 'Lucida Console',monospace;
+  border-top:1px solid #e5e5e5;
+  /* border-right:1px solid #5d5d5d; */
+  /* border-bottom:1px solid #5d5d5d; */
+  border-left:1px solid #e5e5e5;
+  background-color: rgba(76, 127, 127, 0.683);
+  color: white;
+  cursor:default;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.last {
+  width:99%;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.alive {
+  background-color:#ccccdd;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.target {
+  background-color:#ddddcc;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.hover {
+  border-top:1px solid #d5d5d5;
+  border-right:1px solid #555555;
+  border-bottom:1px solid #555555;
+  border-left:1px solid #d5d5d5;
+  background-color:#cccccc;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.pressed,
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.dead {
+  border-top:1px solid #555555;
+  border-right:1px solid #d5d5d5;
+  border-bottom:1px solid #d5d5d5;
+  border-left:1px solid #555555;
+  background-color:#cccccc;
+}
+
+#keyboardInputMaster tbody tr td div var {
+  position:absolute;
+  bottom:0px;
+  right:0px;
+  font:bold italic 11px Arial,sans-serif;
+  color:#444444;
+}
+
+.keyboardInputInitiator {
+  margin-left:3px;
+  vertical-align:middle;
+  cursor:pointer;
+}
+.keyboardInputInitiator{
+  width: 25px;
+  height: 25px;
+}
+.keyboardInput{
+  font-size: 15px;
+  width: 50%;
+  height: 20%;
+}
+

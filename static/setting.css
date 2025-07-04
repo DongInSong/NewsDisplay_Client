@@ -1,0 +1,441 @@
+.container-setting {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: auto;
+  grid-template-rows: 10% 90%;
+}
+
+.setting-head {
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: left;
+  margin-left: 10px;
+  /* font-family: "Last Ninja", Impact, fantasy; */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: white;
+}
+
+.navbar-logo {
+  cursor: pointer;
+}
+
+.navbar-list {
+  width: 100%;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.navbar-list li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.navbar-list li a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+}
+
+.setting-dropdown {
+  position: relative;
+  width: fit-content;
+}
+
+.setting-dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: 85px;
+  border-radius: 80px;
+  color: black;
+  cursor: pointer;
+  margin-left: -0.7rem;
+}
+
+.setting-img {
+  position: relative;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.setting-img img:hover {
+  transform: rotate(180deg);
+  transition: 1s;
+}
+
+.setting-dropdown-btn span {
+  margin: 0 0.5rem;
+  margin-right: 0;
+}
+
+.setting-dropdown-list {
+  background-color: rgba(255, 255, 255, 0);
+  list-style: none;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  /* top: -50px;
+  width: 600px;
+  right: 100px; */
+
+  top: -70px;
+  width: 750px;
+
+  left: -20px;
+  right: 0px;
+  /* margin-right: 0; */
+
+  border-radius: 10px;
+  max-height: 0;
+  overflow: hidden;
+  box-shadow: black;
+  transition: 2s;
+  padding: 0;
+  margin-left: -41rem;
+  float: left;
+  height: 150px;
+  text-align: center;
+}
+
+.setting-dropdown-list.active {
+  max-height: 900px;
+  backdrop-filter: blur(1.2px);
+  background-color: rgba(47, 79, 79, 0.683);
+}
+
+.setting-dropdown-list-item {
+  /* padding: 0.5rem 0rem 0.5rem 1rem; */
+  transition: background-color 0.6s ease-in, padding-left 0.2s;
+  /* padding: 0px 30px 30px 0px; */
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.setting-dropdown-list-item button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  /* font-size: 0.9rem;
+  font-weight: 500; */
+  border: none;
+  /* width: 50px; */
+  height: 80px;
+
+  /* background-color: black; */
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.setting-dropdown-list-item a span {
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  line-height: 2.3rem;
+  text-align: center;
+  margin-right: 1rem;
+  border-radius: 50%;
+  transition: margin-right 0.3s;
+}
+
+.setting-dropdown-list-item:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s;
+  /* margin-left: 3px; */
+}
+
+#icon-description {
+  /* margin-left: 1rem; */
+  font-size: 18px;
+  color: white;
+  font-weight: bolder;
+  font: oblique;
+  /* margin-left: 30px; */
+}
+
+.save-container {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: 50px 50px;
+  column-gap: 20px;
+  justify-content: flex-end;
+}
+.save-btn {
+  min-width: 55px;
+  min-height: 40px;
+  /* background-color: #d2ffda; */
+  /* background-color: rgb(122, 203, 128);*/
+  background-color: rgba(64, 114, 114, 0.683);
+  border-radius: 10px;
+  color: white;
+  border-style: none;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.save-btn:disabled {
+  background-color: rgb(174, 174, 174);
+}
+
+.save-btn:enabled:active {
+  background-color: #d2ffda;
+}
+
+.container-scroll {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* -------------------------------------------------------- */
+/* -----------------세계시간 설정화면 css----------------- */
+
+.container-timezone {
+  display: grid;
+  grid-template-rows: repeat(3, 50px);
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  row-gap: 10px;
+  column-gap: 30px;
+  max-height: 35%;
+  overflow: auto;
+  scrollbar-width: 10px;
+}
+
+.country-btn {
+  background-color: #dbdbdb;
+  border-style: none;
+  font-weight: bolder;
+}
+
+.country-btn:active {
+  background-color: rgb(68, 67, 67);
+}
+
+.normal-btn {
+  background-color: white;
+  border-style: solid;
+  font-weight: bolder;
+  border-radius: 10px;
+}
+
+.normal-btn:active {
+  transition: 0.3s;
+  border: 3px solid black;
+  background-color: black;
+}
+
+/* -------------------------------------------------- */
+.contianer-category {
+  display: grid;
+  grid-template-rows: repeat(3, 50px);
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  row-gap: 10px;
+  column-gap: 30px;
+  max-height: 35%;
+  overflow: auto;
+  scrollbar-width: 10px;
+}
+
+.category-btn {
+  background-color: #dbdbdb;
+  border-style: none;
+  font-weight: bolder;
+}
+
+.contianer-category > button:active {
+  background-color: rgb(78, 78, 78);
+  color: white;
+}
+/* -------------------------------------------------- */
+
+.contianer-userinfo {
+  display: grid;
+  grid-template-rows: repeat(3, 50px);
+  grid-template-columns: auto;
+  justify-content: center;
+  row-gap: 10px;
+}
+
+/* -------------------------------------------------- */
+.userInfo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.person {
+  display: flex;
+  justify-content: center;
+}
+
+.userInfo-text {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+  background-color: white;
+}
+.person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transform: translate(15%, -5%);
+  border-style: none;
+  background-color: white;
+  width: 300px;
+  height: 300px;
+}
+
+#student {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#student > span {
+  text-align: center;
+  font-size: 100px;
+}
+
+#student > input {
+  display: flex;
+  justify-content: center;
+  width: 80px;
+  height: 20px;
+}
+
+#public {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#public > span {
+  text-align: center;
+  font-size: 100px;
+}
+
+#public > input {
+  display: flex;
+  justify-content: center;
+  width: 80px;
+  height: 20px;
+}
+
+/* -----------------------유저 설정--(6/6일 추가)------------------------- */
+
+.userInfo {
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  row-gap: 0px;
+}
+
+.user-type {
+  display: grid;
+  justify-content: center;
+  gap: 50px;
+  grid-template-columns: 30% 30%;
+  grid-template-rows: auto;
+  row-gap: 0px;
+  margin-top: 20px;
+}
+
+.student {
+  border: 3px solid #df991f;
+  border-radius: 10px;
+  background-color: rgb(255, 174, 0);
+  position: relative;
+}
+
+.student:active {
+  border: 3px solid #df991f;
+  border-radius: 10px;
+  background-color: rgb(255, 207, 104);
+  position: relative;
+}
+
+.normal {
+  border: 3px solid #2899e0;
+  border-radius: 10px;
+  background-color: aqua;
+  position: relative;
+}
+
+.normal:active {
+  border: 3px solid #2899e0;
+  border-radius: 10px;
+  background-color: rgb(142, 249, 249);
+  position: relative;
+}
+
+.user-type-description {
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+/* -------------------------------------------------------------------- */
+
+#brightness-setter {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-top: 50px;
+}
+
+#brightness-setter::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+#brightness-setter::-moz-range-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+#brightness-setter::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid rgb(141, 255, 2);
+  box-shadow: -407px 0 0 400px rgb(0, 255, 47);
+}
+
+#brightness-setter::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid rgb(53, 133, 38);
+  box-shadow: -407px 0 0 400px rgb(68, 171, 54);
+}
