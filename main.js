@@ -5,8 +5,7 @@ const axios = require("axios");
 const fs = require("fs");
 const fn = "./localSetting.json";
 const updater = require("./updater.js");
-// const url = "http://127.0.0.1:8000";
-const url = "http://kostech.iptime.org:3944";
+const url = process.env.BACKEND_URL
 const url_default = url + "/trendnews/most";
 
 function createWindow() {
