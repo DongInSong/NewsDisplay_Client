@@ -27,6 +27,9 @@
 
 ![KakaoTalk_20241122_183547486](https://github.com/user-attachments/assets/340dff7e-8435-4a60-84b8-9afe46ea422a)
 
+![디스플레이_연결_1 (소형)](https://github.com/user-attachments/assets/9764c31b-4d37-4226-8678-b0f0504c92ca)
+
+
 ## 2. 메인메뉴
 
 ![Screenshot_20230615_003553](https://github.com/user-attachments/assets/f4a1a904-f3a9-41d8-afcc-8c48e059cb3a)
